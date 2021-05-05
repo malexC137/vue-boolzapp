@@ -20,7 +20,6 @@ main {
 .main-container {
     width: 90vw;
     height: 90vh;
-    background-color: salmon;
     position: absolute;
     top: 5vh;
     left: 5vw;
@@ -32,7 +31,6 @@ main {
 .contacts-column {
     width: 25vw;
     height: 100%;
-    background-color: slateblue;
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +38,6 @@ main {
 .conversation-column {
     flex-grow: 1;
     height: 100%;
-    background-color: seagreen;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -77,16 +74,33 @@ main {
 
 .conversations-list {
     display: flex;
+    /* height: 100px; */
     flex-direction: column;
     overflow: auto;
 }
 
 .contact {
-    height: 70px;
-    width: 100%;
-    background-color: royalblue;
-    border: solid 1px white;
+    /* width: 100%; */
     flex-shrink: 0;
+    padding: 5px 5px 5px 5px;
+    background-color: white;
+    border-bottom: solid 1px lightgray;
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.contact-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px 0;
 }
 
 .conversation-space {
@@ -107,8 +121,8 @@ main {
 }
 
 .message-row {
-    width: 100%;
     display: flex;
+    margin: 5px;
 }
 
 .my-message-row {
@@ -133,19 +147,4 @@ main {
     background-color: rgb(225, 230, 243);
 }
 
-/* .my-text-message {
-    position: absolute;
-    right: 0;
-    background-color: tomato;
-}
-
-.contact-text-message {
-    position: absolute;
-    left: 0;
-    background-color: violet;
-}
-
-p {
-    margin: 15px;
-} */
 

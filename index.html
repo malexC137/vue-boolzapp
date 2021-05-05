@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 
 <body>
     <main>
         <div class="top-row"></div>
-        <div class="main-container">
+        <div class="main-container" id="app">
             <div class="contacts-column">
                 <div class="bar top-bar"></div>
                 <div class="notifications-bar"></div>
@@ -20,30 +21,36 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat" class="my-search-bar">
                 </div>
                 <div class="conversations-list">
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
-                    <div class="contact"></div>
+                    <div v-for="element in contacts" @click="onContactClick(element)" class="contact">
+                        <img class="contact-img" :src="element.img" alt="">
+                        <div class="contact-info">
+                            <h3> {{element.name}} </h3>
+                            <h5> {{element.lastMessage}} </h5>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="conversation-column">
-                <div class="bar top-bar"></div>
+                <div class="bar top-bar">
+                    <img src="" alt="">
+                    <div class="contact-info">
+                        <h3></h3>
+                        <h5></h5>
+                    </div>
+                </div>
                 <div class="conversation-space">
-                    <div class="message-row my-message-row">
+                    <!-- <div class="message-row my-message-row">
                         <div class="text-message-box my-text-message">
-                            <p>Ciao</p>
+                        </div>
+                    </div> -->
+                    <div v-if="activeContact">
+                        <div v-for="element in activeContact.messages" class="message-row contact-message-row">
+                            <div class="text-message-box contact-text-message">
+                                {{ element.text }}
+                            </div>
                         </div>
                     </div>
-                    <div class="message-row contact-message-row">
-                        <div class="text-message-box contact-text-message">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, voluptate quam perferendis commodi in doloremque iste alias praesentium, dolor veritatis enim modi. Voluptatem amet quae sunt veniam odio repellendus numquam!</p>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="bar bot-bar"></div>
             </div>
