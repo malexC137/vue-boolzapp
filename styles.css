@@ -171,6 +171,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-grow: 1;
     padding: 6px 0;
 }
 
@@ -197,6 +198,7 @@ main {
 .message-row {
     margin: 5px;
     display: flex;
+    position: relative;
 }
 
 .conversation-space > div > .sent {
@@ -210,9 +212,11 @@ main {
 }
 
 .text-message-box {
-    padding: 10px;
+    padding: 15px 35px 15px 15px;
     border-radius: 5px;
     max-width: 300px;
+    height: auto;
+    position: relative;
 }
 
 .sent {
@@ -225,4 +229,82 @@ main {
 
 .fa-microphone {
     margin-left: 10px;
+}
+
+.time-message {
+    font-size: 9px;
+    position: absolute;
+    bottom: 2px;
+    right: 6px;
+    color: black;
+}
+
+.message-pop-up {
+    position: absolute;
+    right: 6px;
+    top: 21px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.text-message-box.received .message-pop-up {
+    right: -100px;
+}
+
+
+.message-pop-up ul {
+    margin: 0%;
+    list-style: none;
+}
+
+.message-pop-up ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.message-pop-up ul li:hover {
+    background-color: lightgray;
+}
+
+.fa-chevron-down {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.text-message-box:hover .fa-chevron-down {
+    opacity: 0.4;
+}
+
+.last-message-time {
+    display: flex;
+    align-items: center;
+    color: lightgray;
+}
+
+.fa-triangle {
+    position: absolute;
+    font-size: 60px;
+    top: -21px;
+    
+}
+
+.text-message-box.received .fa-triangle {
+    left: 0%;
+    transform: translate(-50%);
+    color: rgb(225, 230, 243);
+
+}
+
+.text-message-box.sent .fa-triangle {
+    right: 0%;
+    transform: translate(50%);
+    color: rgb(203, 243, 197);
 }
